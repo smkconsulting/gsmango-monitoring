@@ -15,7 +15,7 @@ class CreateAnneeAcademiquesTable extends Migration
     {
         Schema::create('annee_academiques', function (Blueprint $table) {
             $table->id();
-            $table->string("designation");
+            $table->string("designation")->unique();
         });
     }
 

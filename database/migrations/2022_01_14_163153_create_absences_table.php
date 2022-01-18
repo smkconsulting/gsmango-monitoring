@@ -16,8 +16,9 @@ class CreateAbsencesTable extends Migration
         Schema::create('absences', function (Blueprint $table) {
             $table->id();
             $table->date("dateabsence");
-            $table->foreignId("enseignant_id")->constrained();
+            $table->foreignId("etudiant_id")->constrained();
             $table->foreignId("cour_id")->constrained();
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
@@ -31,7 +32,7 @@ class CreateAbsencesTable extends Migration
     public function down()
     {
         Schema::table("absences", function(Blueprint $table){
-            $table->dropForeign("enseignant_id");
+            $table->dropForeign("etudiant_id");
             $table->dropForeign("cour_id");
         });
         Schema::dropIfExists('absences');

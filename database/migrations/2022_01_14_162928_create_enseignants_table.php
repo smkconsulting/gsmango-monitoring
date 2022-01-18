@@ -19,7 +19,7 @@ class CreateEnseignantsTable extends Migration
             $table->string("nomprenoms");
             $table->string("telephone");
             $table->string("email");
-            //$table->timestamps();
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

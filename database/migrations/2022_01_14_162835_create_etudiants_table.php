@@ -18,7 +18,7 @@ class CreateEtudiantsTable extends Migration
             $table->foreignId("classe_id")->constrained();
             $table->string("nomprenoms");
             $table->string("telephone_parent");
-            //$table->timestamps();
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();

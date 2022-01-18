@@ -17,12 +17,12 @@ class CreateCoursTable extends Migration
             $table->id();
             $table->dateTime("heuredebutcours");
             $table->dateTime("heurefincours");
-            $table->string("observations");
+            $table->string("observations")->nullable();
             $table->integer("duree");
             $table->foreignId("enseignant_id")->constrained();
             $table->foreignId("classe_id")->constrained();
             $table->foreignId("annee_academique_id")->constrained();
-            //$table->timestamps();
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
@@ -35,7 +35,7 @@ class CreateCoursTable extends Migration
      */
     public function down()
     {
-        Schema::table("absences", function(Blueprint $table){
+        Schema::table("cours", function(Blueprint $table){
             $table->dropForeign("enseignant_id");
             $table->dropForeign("classe_id");
             $table->dropForeign("annee_academique_id");
